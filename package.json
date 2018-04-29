@@ -1,0 +1,26 @@
+{
+  "name": "FriendFinder",
+  "version": "1.0.0",
+  "description": "This is an app that will match compatibility of individuals based on the answers they submit to ten questions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nukepowermaiden2025/FriendFinder.git"
+  },
+  "keywords": ["dating", "casual", "relationship", "friendship"],
+  "author": "Kourtney Reynolds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nukepowermaiden2025/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/nukepowermaiden2025/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3",
+    "path": "^0.12.7"
+  }
+}
