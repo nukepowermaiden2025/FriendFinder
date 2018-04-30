@@ -21,8 +21,6 @@ module.exports = function(app) {
     res.json(friendsData);
   });
 
-
-
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
   // In each of the below cases, when a user submits form data (a JSON object)
@@ -31,14 +29,12 @@ module.exports = function(app) {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-
-
 //   THIS IS WHERE THE FRIEND COMPATIBILITY WILL BE HANDLED
   app.post("/api/survey", function(req, res) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
-    if (friendsData.length < 5) {
+    if (friendsData) {
       friendsData.push(req.body);
       res.json(true);
     }
