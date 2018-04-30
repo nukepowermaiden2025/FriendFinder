@@ -71,15 +71,9 @@
 </body>
 </html>
 
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-
-    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
-    var questions = [
+//Rendering questions to the page dynamically
+ var questions = [
         "How often do you cook meals at home?",
         "How often do you do laundry?",
         "How often do you use public transportation rather than driving?",
@@ -91,8 +85,6 @@
         "How often do you use social media?",
         "How often do you expect see your new friend?",        
     ];
-    
-    // var answers=[];
 
     for(var i=0;i< questions.length; i++){
         $(".question-section").append(`
@@ -120,7 +112,16 @@
         </form><hr>`
         );
     };
-  
+</script>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
     $(".submit").on("click", function(event) {
       event.preventDefault();
 
