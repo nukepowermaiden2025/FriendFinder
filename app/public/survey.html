@@ -49,10 +49,6 @@
                     <hr>
                 </div>
                 </div>
-              
-                
-
-                
 
               <button type="submit" class="btn btn-primary submit">Submit</button>
             </form>
@@ -101,10 +97,10 @@
     for(var i=0;i< questions.length; i++){
         $(".question-section").append(`
         <form role="form"> 
-            <h4><label for="friendq-${i}">${questions[i]}</label></h4>
-            <div class="form-check form-check-inline">
+            <h4><label for="friendq">${questions[i]}</label></h4>
+            <div class="form-check form-check-inline friendq">
                 <div>With 1 being least often and 5 being most often</div>
-                <label class="form-check-label" id="friendq-${i}">
+                <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
                 </label>
                 <label class="form-check-label">
@@ -124,18 +120,23 @@
         </form><hr>`
         );
     };
-    var filterDay = $('#filterDay label.active input').val()
+  
     $(".submit").on("click", function(event) {
       event.preventDefault();
+
+        function target(targetDiv){
+            var scores =[]; 
+            targetDiv.each(function() {
+                scores.push($( this ).val());
+            });
+            return scores;
+        };
 
       // Here we grab the form elements
       var newFriend = {
         name: $("#friend-name").val().trim(),
         photo: $("#friend-photo").val().trim(),
-        scores: function(){
-
-        }
-        
+        scores: target($('.friendq label.active input'))
       };
 
       console.log(newFriend);
@@ -145,7 +146,7 @@
       // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
       // depending on if a tables is available or not.
 
-      $.post("/api/tables", newFriend,
+      $.post("/api/friends", newFriend,
         function(data) {
 
           // If there is a match tell the user they are lucky
