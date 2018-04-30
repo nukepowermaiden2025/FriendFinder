@@ -32,28 +32,27 @@
         <!-- Survey Page -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title">Friend Compatability Survey</h4>
+            <h3 class="panel-title">Friend Compatability Survey</h3>
           </div>
           <div class="panel-body">
 
             <form role="form">
+                <div  class="question-section">
+                <div class="form-group">
+                    <label for="friend-name">Name</label>
+                    <input type="text" class="form-control" id="friend-name">
+                </div>
 
-              <div class="form-group">
-                <label for="friend-name">Name</label>
-                <input type="text" class="form-control" id="friend-name">
-              </div>
+                <div class="form-group">
+                    <label for="friend-photo">Photo Link</label>
+                    <input type="text" class="form-control" id="friend-photo">
+                    <hr>
+                </div>
+                </div>
+              
+                
 
-              <div class="form-group">
-                <label for="friend-photo">Photo Link</label>
-                <input type="text" class="form-control" id="friend-photo">
-              </div>
-
-              <div class="form-group">
-                <label for="friend-q1">How often do you cook meals at home?</label>
-                <input type="text" class="form-control" id="friend-q1">
-
-                <label for="rating-scale">Please answer with 5 being the most often to 1 being the least often.</label>
-              </div>
+                
 
               <button type="submit" class="btn btn-primary submit">Submit</button>
             </form>
@@ -84,25 +83,48 @@
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-    // var questions = [
-    //     "How often do you cook meals at home?",
-    //     "How often do you do laundry?",
-    //     "How often do you use public transportation rather than driving?",
-    //     "How often do you go to sporting events or concerts?",
-    //     "How often do you read non-fiction books or informative articles?",
-    //     "How often do you take vacations?",
-    //     "How often do you party with your friends?",
-    //     "How often do you or would you like to volunteer?",
-    //     "How often do you use social media?",
-    //     "How often do you expect see your new friend?",        
-    // ];
-
+    var questions = [
+        "How often do you cook meals at home?",
+        "How often do you do laundry?",
+        "How often do you use public transportation rather than driving?",
+        "How often do you go to sporting events or concerts?",
+        "How often do you read non-fiction books or informative articles?",
+        "How often do you take vacations?",
+        "How often do you party with your friends?",
+        "How often do you or would you like to volunteer?",
+        "How often do you use social media?",
+        "How often do you expect see your new friend?",        
+    ];
+    
     // var answers=[];
 
-    // for(var i=0;i< questions.length; i++){
-        
-    // };
-
+    for(var i=0;i< questions.length; i++){
+        $(".question-section").append(`
+        <form role="form"> 
+            <h4><label for="friendq-${i}">${questions[i]}</label></h4>
+            <div class="form-check form-check-inline">
+                <div>With 1 being least often and 5 being most often</div>
+                <label class="form-check-label" id="friendq-${i}">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4"> 4
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5"> 5
+                </label>
+                <br>
+            </div>                     
+        </form><hr>`
+        );
+    };
+    var filterDay = $('#filterDay label.active input').val()
     $(".submit").on("click", function(event) {
       event.preventDefault();
 
@@ -110,7 +132,10 @@
       var newFriend = {
         name: $("#friend-name").val().trim(),
         photo: $("#friend-photo").val().trim(),
-        scores: $("#friend-q1").val().trim(),
+        scores: function(){
+
+        }
+        
       };
 
       console.log(newFriend);
