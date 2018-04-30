@@ -139,16 +139,29 @@
         scores: radioValsArr
       }
 
-
       console.log(newFriend);
 
       // This line is the magic. It"s very similar to the standard ajax function we used.
       // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
       // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
       // depending on if a tables is available or not.
+    //   function(data) {
+    //         for(var i=0; i<newFriend.scores.length; i++){
+    //             for(var j=0; j<data[j].scores.length){
+    //                 var compareScores =[];
+    //                 var num = Math.abs(newFriend.scores[i]-)
+                    
+    //             }
 
+    //         }
+/////////////////////////////////////////////////////
+//////////Starting with testing lines 150 -154///////
+/////////////////////////////////////////////////////
       $.post("/api/friendsData", newFriend,
         function(data) {
+            for( var i =0; i<data.length;i++){
+                console.log(data[i].scores);
+            }
 
           // If there is a match tell the user they are lucky
           if (data) {
