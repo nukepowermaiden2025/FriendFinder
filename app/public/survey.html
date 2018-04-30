@@ -93,7 +93,7 @@
             <div class="form-check form-check-inline friendq">
                 <div>With 1 being least often and 5 being most often</div>
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked> 1
                 </label>
                 <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
@@ -125,20 +125,20 @@
     $(".submit").on("click", function(event) {
       event.preventDefault();
 
-        function target(targetDiv){
-            var scores =[]; 
-            targetDiv.each(function() {
-                scores.push($( this ).val());
-            });
-            return scores;
-        };
-
       // Here we grab the form elements
+      var radioValsArr = [];
+      $('input[name=inlineRadioOptions]:checked').each(function(){
+        radioValsArr.push($(this).val());
+      });
+
+      console.log(radioValsArr);
+
       var newFriend = {
         name: $("#friend-name").val().trim(),
         photo: $("#friend-photo").val().trim(),
-        scores: target($('.friendq label.active input'))
-      };
+        scores: radioValsArr
+      }
+
 
       console.log(newFriend);
 
@@ -147,7 +147,7 @@
       // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
       // depending on if a tables is available or not.
 
-      $.post("/api/friends", newFriend,
+      $.post("/api/friendsData", newFriend,
         function(data) {
 
           // If there is a match tell the user they are lucky
