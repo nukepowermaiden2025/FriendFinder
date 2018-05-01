@@ -15,8 +15,54 @@ var friendArray = [
             5,
             4,
             1
-          ]
-      }
+        ]
+    },{
+        "name":"Cory",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores":[
+            5,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            2,
+            1,
+            1
+        ]
+    },{
+        "name":"SeanJ",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
+    {
+        "name":"Donny",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores":[
+            5,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            5,
+            5,
+            1
+        ]
+    },
   ];
   
   // Note how we export the array. This makes it accessible to other files using require.
