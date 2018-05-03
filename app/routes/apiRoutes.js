@@ -31,9 +31,15 @@ module.exports = function(app) {
 
 //   THIS IS WHERE THE FRIEND COMPATIBILITY WILL BE HANDLED
   app.post("/api/friendsData", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know what the total difference.
-    // It will do this by sending out the value "true" have a table
+    // Note the code here. Our "server" will respond to request from the post from the survey
+    //form and then whatever I tell the server to respond with is what will be send back as the 
+    //"data" response for the callback function
+    //and let users know what the total difference.
+    // It will do this by sending out res.json("bestMatchObject")
     // req.body is available since we're using the body-parser middleware
+    //req.body is what we get when a post or (someone is passing a body of data to the server
+    //and the body parser middle-ware is literally in the middle to take that data
+    // and convert it into something nice for my server to deal with.)
     var userData = req.body;
     
     var bestMatch = {
@@ -54,25 +60,23 @@ module.exports = function(app) {
         if(totalDiff < bestMatch.score){
             bestMatch.score= totalDiff;
             bestMatch.name=friendArray[i].name;
-            bestMatch.photo=friendArray[i].name;
+            bestMatch.photo=friendArray[i].photo;
             console.log("the match score is:" + bestMatch.score);
         }   
         
     }
     console.log("The BEST MATCH IS: "+ bestMatch.score,bestMatch.name);
-    
-    // if (friendArray) {
-    //     friendArray.push(userData);
-    //     res.json(true);
-    //     console.log("the new friend array is :"+ JSON.stringify(friendArray,null,2));
-    // }
-
-   
-   
-    // else {
-    //   console.log("Sorry everyone found someone and you are left out!");
-    //   res.json(false);
-    // }
+    ////////This is the response that goes back when ever this route is pinged/////////////////
+                res.json(bestMatch);
+    //////////////////////////////////////////////////////////////////////
+    if (friendArray) {
+        friendArray.push(userData);
+        console.log("the new friend array is :"+ JSON.stringify(friendArray,null,2));
+    }
+    else {
+      console.log("Sorry everyone found someone and you are left out!");
+      res.json(false);
+    }
   });
 
   // ---------------------------------------------------------------------------

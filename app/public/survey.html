@@ -139,7 +139,7 @@
         scores: radioValsArr
       }
 
-      console.log(newFriend);
+      // console.log(newFriend);
 
       // This line is the magic. It"s very similar to the standard ajax function we used.
       // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
@@ -155,7 +155,7 @@
             
           // If there is a match tell the user they are lucky
           if (data) {
-            alert("Yay! You have officially put yourself out there to meet people!");
+            console.log(data);
           }
 
           // If there is not a match tell the user they are unlucky
