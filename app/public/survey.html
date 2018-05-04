@@ -13,6 +13,32 @@
 <body>
 
   <div class="container">
+    <!-- Trigger the modal with a button -->
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal"data-show="modal" data-target="#myModal" role="dialog">
+        
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body bestMatch-body">
+              <h1 id="bestMatch-name">SomeText</h1>
+              <img id='bestMatch-photo' src=""/>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     <div class="jumbotron">
       <h1 class="text-center"><span class="glyphicon glyphicon-transfer"></span>Friend Finder</h1>
@@ -151,11 +177,14 @@
 /////////////////////////////////////////////////////
       $.post("/api/friendsData", newFriend,
         function(data) {
-          
-            
+        
           // If there is a match tell the user they are lucky
           if (data) {
             console.log(data);
+            $('#bestMatch-photo').attr('src',data.photo);
+            $('#bestMatch-name').text(data.name);
+           
+            $('#myModal').modal('show');
           }
 
           // If there is not a match tell the user they are unlucky

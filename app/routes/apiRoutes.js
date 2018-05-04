@@ -69,14 +69,14 @@ module.exports = function(app) {
     ////////This is the response that goes back when ever this route is pinged/////////////////
                 res.json(bestMatch);
     //////////////////////////////////////////////////////////////////////
-    if (friendArray) {
-        friendArray.push(userData);
-        console.log("the new friend array is :"+ JSON.stringify(friendArray,null,2));
-    }
-    else {
-      console.log("Sorry everyone found someone and you are left out!");
-      res.json(false);
-    }
+    // if (friendArray) {
+    //     friendArray.push(userData);
+    //     console.log("the new friend array is :"+ JSON.stringify(friendArray,null,2));
+    // }
+    // else {
+    //   console.log("Sorry everyone found someone and you are left out!");
+    //   res.json(false);
+    // }
   });
 
   // ---------------------------------------------------------------------------
