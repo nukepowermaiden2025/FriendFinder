@@ -45,6 +45,7 @@ module.exports = function(app) {
     var bestMatch = {
         name:"",
         photo:"",
+        email:"",
         score:50
     };
     for(var i=0; i< friendArray.length; i++){
@@ -56,6 +57,7 @@ module.exports = function(app) {
         if(totalDiff < bestMatch.score){
             bestMatch.score= totalDiff;
             bestMatch.name=friendArray[i].name;
+            bestMatch.email=friendArray[i].email;
             bestMatch.photo=friendArray[i].photo;
             console.log("the match score is:" + bestMatch.score);
         }   
