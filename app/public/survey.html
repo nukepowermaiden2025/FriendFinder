@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>New Friend Survey </title>
+  <title>New Mentor Survey </title>
 
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+    .header-style {
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJwOUMIkhVzXTzAZIRAMcMsKQe5CrK7kXrDWIxzW2v06cF8Io7AA);
+      background-repeat: no-repeat;
+      background-size: cover;
+    } 
+  </style>
 
 </head>
 <body>
@@ -25,7 +32,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Your New Best Friend is...</h4>
+              <h4 class="modal-title">Meet your new mentor...</h4>
             </div>
             <div class="modal-body bestMatch-body">
               <h1 id="bestMatch-name">SomeText</h1>
@@ -40,14 +47,14 @@
         </div>
       </div>
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="glyphicon glyphicon-transfer"></span>Friend Finder</h1>
+    <div class="jumbotron header-style">
+      <h1 class="text-center" style="color:white;text-shadow: 3px 2px navy">Mentor Match Machine</h1>
       <hr>
-      <h2 class="text-center">Find your somebody</h2>
+      <h3 class="text-center"style="color:white;text-shadow: 3px 2px navy">This is your first step so answer honestly.</h3>
       <br>
 
       <div class="text-center">
-        <a href="/tables"><button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Matches </button></a>
+        <!-- <a href="/tables"><button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Matches </button></a> -->
         <a href="/"><button class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
       </div>
     </div>
@@ -58,7 +65,7 @@
         <!-- Survey Page -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Friend Compatability Survey</h3>
+            <h3 class="panel-title">Mentor Compatability Survey</h3>
           </div>
           <div class="panel-body">
 
@@ -88,7 +95,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friendsData">API Friends Link</a> | <a href="https://github.com/nukepowermaiden2025/FriendFinder">GitHub Repo</a></p>
+        <p><a href="/api/friendsData">API Mentor Link</a> | <a href="https://github.com/nukepowermaiden2025/FriendFinder">GitHub Repo</a></p>
       </div>
     </footer>
 
@@ -100,16 +107,16 @@
 <script type="text/javascript">
 //Rendering questions to the page dynamically
  var questions = [
-        "How often do you cook meals at home?",
-        "How often do you do laundry?",
-        "How often do you use public transportation rather than driving?",
-        "How often do you go to sporting events or concerts?",
-        "How often do you read non-fiction books or informative articles?",
-        "How often do you take vacations?",
-        "How often do you party with your friends?",
-        "How often do you or would you like to volunteer?",
-        "How often do you use social media?",
-        "How often do you expect see your new friend?",        
+        "How often do you study new technology for self-improvement or skills development?",
+        "How often do you make plans and DON'T keep them?",
+        "How often do you use LinkedIn to connect with other professionals in your field?",
+        "How often do you go to geospatial conferences or tech related outings?",
+        "How often do you make time to be involved in something outside your comfort zone?",
+        "How often do you take time to make a plan to pin down new ideas or challenges?",
+        "How often do you engage with your co-workers even when you feel you have nothing to add?",
+        "How often do you or would you like to work on non-profit projects to enhance your skill set?",
+        "How often do you expect to simply chat and look for encouragement?",
+        "How often do you expect to get solid executable advice?",        
     ];
 
     for(var i=0;i< questions.length; i++){

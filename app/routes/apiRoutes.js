@@ -47,12 +47,8 @@ module.exports = function(app) {
         photo:"",
         score:50
     };
-
-    
-
     for(var i=0; i< friendArray.length; i++){
         var totalDiff = 0;
-        console.log(friendArray[i]);
         for(var j=0; j<friendArray[i].scores.length; j++){
             
            totalDiff += (Math.abs(parseInt(friendArray[i].scores[j]) - parseInt(userData.scores[j])));
@@ -79,14 +75,5 @@ module.exports = function(app) {
     }
   });
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
-
-//   app.post("/api/clear", function() {
-//     // Empty out the arrays of data
-//     friendData = [];
-
-//     console.log(tableData);
-//   });
+ 
 };

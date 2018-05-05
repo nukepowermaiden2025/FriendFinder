@@ -2,31 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Friend Finder Page</title>
+  <title>Mentor Match Page</title>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+  <style>
+    .header-style {
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJwOUMIkhVzXTzAZIRAMcMsKQe5CrK7kXrDWIxzW2v06cF8Io7AA);
+      background-repeat: no-repeat;
+      background-size: cover;
+    } 
+    </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" >
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="glyphicon glyphicon-transfer"></span> Friend Finder</h1>
+    <div class="jumbotron header-style">
+      <h1 class="text-center" style="color:white;text-shadow: 3px 2px navy"> Mentor Match Machine</h1>
       <hr>
-      <h2 class="text-center">Your new friend is waiting! Make your paths cross today.</h2>
+      <h2 class="text-center" style="color:white;text-shadow: 3px 2px navy">Your new mentor is waiting. Take the leap!</h2>
       <br>
 
       <div class="text-center">
-        <a href="/survey"><button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> Friend Finder Survey</button></a>
+        <a href="/survey"><button class="btn btn-lg btn-dark"><span class="glyphicon glyphicon-list-alt"></span> Mentor Match Survey</button></a>
       </div>
 
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friendsData">API Friends Link</a> | <a href="https://github.com/nukepowermaiden2025/FriendFinder">GitHub Repo</a></p>
+        <p><a href="/api/friendsData">API Mentor Link</a> | <a href="https://github.com/nukepowermaiden2025/FriendFinder">GitHub Repo</a></p>
       </div>
     </footer>
 
